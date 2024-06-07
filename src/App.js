@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// CleanUp Function
 
-function App() {
+import { useState, useEffect } from 'react';
+
+const App = () => {
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+
+  const sizeController = () => {
+    setWindowSize(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', sizeController);
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Šírka okna</h1>
+      <h2>{windowSize}</h2>
     </div>
   );
-}
+};
 
 export default App;
