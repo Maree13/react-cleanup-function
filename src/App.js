@@ -11,6 +11,11 @@ const App = () => {
 
   useEffect(() => {
     window.addEventListener('resize', sizeController);
+
+    return () => {
+      console.log('Ja jsem cleanUp Function');
+      window.removeEventListener('resize', sizeController);
+    };
   });
 
   return (
